@@ -1,0 +1,292 @@
+<body>
+    <!-- Button trigger modal -->
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <!-- Modal  01 Add project -->
+    <div class="modal" id="AddProjectModal" style="border-radius: 20px; width:66%;">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <center>
+                    <h4>
+                        Creacion de proyecto
+                    </h4>
+                </center>
+
+                <form action="/support/dashboard/project" method="POST">
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">font_download</i>
+                            <input type="text" name="name">
+                            <label for="name">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">format_shapes</i>
+                            <textarea name="description" id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">date_range</i>
+                            <input type="text" name="start_date" class="datepicker">
+                            <label for="start_date">Fecha inicio del proyecto</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">date_range</i>
+                            <input type="text" name="end_date" class="datepicker">
+                            <label for="end_date">Fecha fin del proyecto</label>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block  button_primary">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn-flat">Cerrar</a>
+        </div>
+    </div>
+
+    {{!-- ver project --}}
+    <div class="modal" id="SeeProjectModal" style="border-radius: 20px; width:66%;">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <center>
+                    <h4>
+                        Ver proyecto
+                    </h4>
+                </center>
+
+                <form action="/support/dashboard/project" method="POST">
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">font_download</i>
+                            <label for="name">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">format_shapes</i>
+                            <textarea name="description" id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">date_range</i>
+                            <input type="text" name="start_date" class="datepicker">
+                            <label for="start_date">Fecha inicio del proyecto</label>
+                        </div>
+                    </div>
+                    <div class="row divMargin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">date_range</i>
+                            <input type="text" name="end_date" class="datepicker">
+                            <label for="end_date">Fecha fin del proyecto</label>
+                        </div>
+                    </div>
+
+                    <br />
+                </form>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn-flat">Cerrar</a>
+        </div>
+    </div>
+
+    <!-- Modal  02 List Articulo-->
+    <div class="modal fade" id="ListArticuloModal" tabindex="-1" aria-labelledby="ListArticuloModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ListArticuloModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                    <div class="row">
+                        {{#each Articulos}}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{title}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                                    <p class="card-text">{{ descript}}</p>
+                                    <a href="/support/deleteArticulo/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                                    <hr>
+                                    <a href="/support/editArticulo/{{id}}" class="btn btn-success d-block">Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">sin articulos </h5>
+                                    <p class="card-text">
+                                        Aun no se tiene articulos creados para mostrar
+                                    </p>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  03 Ultimos Articulos-->
+    <div class="modal fade" id="ArticulosModal" tabindex="-1" aria-labelledby="ArticulosModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ArticulosModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        {{#each UltArticulos}}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{title}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                                    <p class="card-text">{{ descript}}</p>
+                                    <a href="/support/deleteArticulo/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                                    <hr>
+                                    <a href="/support/editArticulo/{{id}}" class="btn btn-success d-block">Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">sin articulos </h5>
+                                    <p class="card-text">
+                                        Aun no se tiene articulos creados para mostrar
+                                    </p>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Mensajes-->
+    <div class="modal fade" id="MensageModal" tabindex="-1" aria-labelledby="MensageModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MensageModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        {{#each ListMensajes}}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{nombre}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                                    <p class="card-text">{{correo}}</p>
+                                    <textarea cols="30" rows="10" disabled>{{description}}</textarea>
+                                    <a href="/support/deleteMensaje/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="col">
+                            <center>
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">sin Mensajes </h5>
+                                        <p class="card-text">
+                                            Aun no se tienes mensajes para mostrar
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#modal1').modal();
+    });
+
+    $(document).ready(function () {
+        $('#AddProjectModal').modal();
+    });
+
+    $(document).ready(function () {
+        $('#SeeProjectModal').modal();
+    });
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker({ format: 'yyyy-mm-dd' });
+
+    });
+
+</script>

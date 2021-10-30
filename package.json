@@ -1,0 +1,37 @@
+{
+  "name": "proyecto_parqueadero",
+  "version": "1.0.0",
+  "description": "prueba \r Esto es una prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CindyFonck/Proyecto_Parqueadero.git"
+  },
+  "author": "German B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CindyFonck/Proyecto_Parqueadero/issues"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-validator": "^6.13.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.2",
+    "promise-mysql": "^5.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
