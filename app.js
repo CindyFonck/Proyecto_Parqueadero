@@ -4,9 +4,15 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const path = require('path');
 const hbs = require('express-handlebars');
+const flash = require('connect-flash');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+const { database } = require('./model/database/keys');
 
 const app = express();
 const userRoutes = require('./controller/routes/userRoutes');
+const personRoutes = require('./controller/routes/personRoutes');
+const vehicleRoutes = require('./controller/routes/vehicleRoutes');
 
 if (process.env.NODE_ENV != 'production') {
     dotenv.config()
@@ -41,13 +47,26 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json(({ extended: true })));
 
+// Session
+app.use(session({
+    secret: 'crudmysqlynodejs',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
+app.use(flash());
+
 app.use((req, res, next) => {
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     app.locals.user = req.user;
     next();
 })
 
 //Routes
 app.use(userRoutes);
+app.use(personRoutes);
+app.use(vehicleRoutes);
 
 // Definition public files
 app.use(express.static(path.join(__dirname+'/views', 'public')));

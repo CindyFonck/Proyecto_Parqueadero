@@ -1,0 +1,143 @@
+<link rel="stylesheet" type="text/css" href="/css/Admin/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<body class="overlay-scrollbar" style="display: block;">
+
+    <!-- navbar -->
+    <div class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item nav_item">
+                <a class="nav-link">
+                    <i class="material-icons prefix" onclick="collapseSidebar()">menu</i>
+                </a>
+            </li>
+
+        </ul>
+
+        <ul class="navbar-nav ">
+            <div class="nav-item nav_item">
+                <a href="/" class="nav-link">
+                    <div>
+                        <center>
+                            <i class="material-icons prefix">exit_to_app</i>
+                        </center>
+                    </div>
+                </a>
+            </div>
+        </ul>
+    </div>
+
+
+    <!-- end navbar -->
+    <!-- sidebar -->
+    <div class="sidebar">
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="/userInfo" class="sidebar-nav-link">
+                    <div>
+                        <i class="material-icons prefix">dashboard</i>
+                    </div>
+                    <span>
+                        Dashboard
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="/person" class="sidebar-nav-link active">
+                    <div>
+                        <i class="material-icons prefix">work</i>
+                    </div>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="/vehicle" class="sidebar-nav-link">
+                    <div>
+                        <i class="material-icons prefix">assignment_turned_in</i>
+                    </div>
+                    <span>Vehiculos</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item li_theme">
+                <center>
+                    <a class="nav-item  a_theme" href="#" onclick="switchTheme()">
+                        <i class="material-icons prefix">wb_sunny</i>
+                    </a>
+                </center>
+            </li>
+        </ul>
+    </div>
+
+    <!-- end sidebar -->
+    <!-- main content -->
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-12 col-m-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header header_add">
+                        <div>
+
+                            <h4>
+                                Añadir Vehiculo
+                            </h4>
+                        </div>
+
+                    </div>
+
+                    <br />
+
+                    <form action="/vehicle/register" method="POST">
+                        <div class="form_person">
+                            <div style="width: 100%;">
+                                <div class="input-field col s12" style="display: none;">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="id" value="{{personID}}">
+                                    <label for="id">Person</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="brand">
+                                    <label for="brand">Marca</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="plate">
+                                    <label for="plate">Placa</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="type">
+                                    <label for="type">Tipo</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group button_general">
+                            <button class="btn btn-success btn-block  button_primary">
+                                Registrar
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+    {{!-- {{>modals}} --}}
+    <!-- end main content -->
+    <!-- import script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="/js/index.js"></script>
+    <!-- end import script -->
+</body>
