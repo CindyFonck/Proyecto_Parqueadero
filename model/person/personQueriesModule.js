@@ -3,4 +3,6 @@ module.exports = {
     getPersonCount: require('./getPersonCount'),
     getPersons: require('./getPersons'),
     getPersonByTaxid: require('./getPersonByTaxid'),
+    updatePerson: require('./updatePerson'),
+    getPersonById: require('./getPersonById'),
 };

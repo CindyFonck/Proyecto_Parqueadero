@@ -12,4 +12,8 @@ router.post('/person/form', person.addPerson);
 
 router.post('/person/register', person.createPerson);
 
+router.post('/person/update/:id', person.editProject);
+
+router.get('/person/update/:id', person.getPersonByIdentify);
+
 module.exports = router;

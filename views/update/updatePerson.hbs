@@ -83,7 +83,7 @@
                         <div>
 
                             <h4>
-                                Añadir Vehiculo
+                                Actualizar Persona
                             </h4>
                         </div>
 
@@ -91,36 +91,54 @@
 
                     <br />
 
-                    <form action="/vehicle/register" method="POST">
+                    <form action="/person/update/{{personResult.Id_Person}}" method="POST" >
                         <div class="form_person">
-                            <div style="width: 100%;">
+                            <div class="form_divs">
                                 <div class="input-field col s12" style="display: none;">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="id" value="{{personID}}">
-                                    <label for="id">Person</label>
+                                    <input type="text" name="type_taxid">
+                                    <label for="taxid">Tipo de identificacion</label>
                                 </div>
                                 <div class="input-field col s12">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="brand">
-                                    <label for="brand">Marca</label>
+                                    <input type="text" name="taxid" value="{{personResult.Taxid}}">
+                                    <label for="taxid">Numero de identificacion</label>
                                 </div>
                                 <div class="input-field col s12">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="plate">
-                                    <label for="plate">Placa</label>
+                                    <input type="text" name="name" value="{{personResult.Names}}">
+                                    <label for="name">Nombres</label>
                                 </div>
                                 <div class="input-field col s12">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="type">
-                                    <label for="type">Tipo</label>
+                                    <input type="text" name="lastname" value="{{personResult.Last_Name}}">
+                                    <label for="lastname">Apellidos</label>
+                                </div>
+                            </div>
+
+                            <div class="form_divs">
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="address" value="{{personResult.Direction}}">
+                                    <label for="address">Direccion</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="phone" value="{{personResult.Phone}}">
+                                    <label for="phone">Telefono</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
+                                    <input type="text" name="sign" value="{{personResult.Sign}}">
+                                    <label for="sign">Firma</label>
                                 </div>
                             </div>
                         </div>
 
-                        <br>
-                        <div class="form-group button_general">
+                        <br><br>
+                        <div class="form-group button_general" >
                             <button class="btn btn-success btn-block  button_primary">
-                                Registrar
+                                Siguiente
                             </button>
                         </div>
 

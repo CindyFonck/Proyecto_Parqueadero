@@ -9,6 +9,9 @@ const sqlQueries = {
     CREATE_VEHICLE:
         'INSERT INTO vehicle SET ?',
 
+    UPDATE_VEHICLE:
+        'UPDATE vehicle SET ? WHERE Id_Vehicle = ?',
+
     GET_VEHICLE_BY_PLATE:
         'SELECT * FROM vehicle WHERE License_plate = ?',
 };

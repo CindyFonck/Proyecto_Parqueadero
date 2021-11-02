@@ -2,6 +2,7 @@ const response = require('../responses/responses');
 const userQueries = require('../../model/user/userQueriesModule');
 const personQueries = require('../../model/person/personQueriesModule');
 const vehicleQueries = require('../../model/vehicle/vehicleQueriesModule');
+const paymentQueries = require('../../model/payment/paymentQueriesModule');
 const CryptoJS = require('crypto-js');
 
 
@@ -43,9 +44,10 @@ exports.createVehicle = async (req, res, next) => {
 
         const vehicleResult = await vehicleQueries.createVehicle(newVehicle);
         const vehicleID = vehicleResult.insertId;
-        console.log('REQPRO: ' + JSON.stringify(personResult));
+        console.log('REQPRO: ' + JSON.stringify(vehicleResult));
 
-        res.render('register/newRegisterPayment', {vehicleID, id});
+        const bays = await paymentQueries.getBay();
+        res.render('register/newRegisterPayment', {vehicleID, id, bays});
     } catch (error) {
         console.log(error);
     }

@@ -83,7 +83,7 @@
                         <div>
 
                             <h4>
-                                Añadir Vehiculo
+                                Parqueadero
                             </h4>
                         </div>
 
@@ -91,28 +91,37 @@
 
                     <br />
 
-                    <form action="/person/register" method="POST">
+                    <form action="/payment/register" method="POST">
                         <div class="form_person">
                             <div style="width: 100%;">
                                 <div class="input-field col s12" style="display: none;">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="taxid" value="{{personID}}">
-                                    <label for="taxid">Person</label>
+                                    <input type="text" name="vehicle" value="{{vehicleID}}">
+                                    <label for="vehicle">Vehiculo</label>
                                 </div>
                                 <div class="input-field col s12">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="brand">
-                                    <label for="brand">Marca</label>
+                                    <select name="bay_id">
+                                        <option value="" disabled selected>Seleccione bahia</option>
+                                        <option value="2">Negro</option>
+                                        <option value="3">Blanco</option>
+                                        <option value="4">Azul</option>
+                                        <option value="5">Rojo</option>
+                                        <option value="6">Amarillo</option>
+                                    </select>
+                                    <label for="bay_id">Bahia</label>
                                 </div>
                                 <div class="input-field col s12">
                                     {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="plate">
-                                    <label for="plate">Placa</label>
-                                </div>
-                                <div class="input-field col s12">
-                                    {{!-- <i class="material-icons prefix">font_download</i> --}}
-                                    <input type="text" name="type">
-                                    <label for="type">Tipo</label>
+                                     <select name="vehicle">
+                                        <option value="" disabled selected>Seleccione parqueadero</option>
+                                        <option value="1">C22</option>
+                                        <option value="2">E46</option>
+                                        <option value="4">A8</option>
+                                        <option value="5">B12</option>
+                                        <option value="6">D35</option>
+                                    </select>
+                                    <label for="parking">Parqueadero</label>
                                 </div>
                             </div>
                         </div>
